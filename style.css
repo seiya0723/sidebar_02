@@ -1,0 +1,126 @@
+body {
+    margin:0;
+}
+
+/* ヘッダー部 */
+.header {
+    position:fixed;
+    top:0;
+
+    width:100%;
+    height:3rem;
+    z-index:99;
+
+    background:deepskyblue;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+.header h1 {
+    font-size:2rem;
+    margin:0;
+}
+
+
+
+/* サイドバーのボタン */
+
+.sidebar_chk {
+    display:none;
+}
+.sidebar_label {
+    position:fixed;
+    top:0.5rem;
+    right:0.5rem;
+
+    width:4rem;
+    height:2rem;
+    border-radius:2rem;
+    background:gray;
+
+    z-index:100;
+    cursor:pointer;
+    transition:0.2s;
+    box-shadow:0 4px 4px -2px #333 inset;
+}
+.sidebar_label:before {
+    content:"";
+    position:absolute;
+    background:white;
+    left:50%;
+    width:2rem;
+    height:2rem;
+    border-radius:2rem;
+    transition:0.2s;
+    box-shadow:4px 0 4px -2px #333;
+}
+
+/* チェックされた時、チェックボックスに隣接要素(+)であるラベルタグ及びラベルタグの疑似要素の装飾を変える。*/
+
+input[type="checkbox"].sidebar_chk:checked + .sidebar_label{
+    background:orange;
+    transition:0.2s;
+}
+input[type="checkbox"].sidebar_chk:checked + .sidebar_label:before{
+    left:0;
+    transition:0.2s;
+}
+
+
+
+/* サイドバーのメニュー部とクローザー部 */
+
+.sidebar_menu {
+    position:fixed;
+    top:3rem;
+    right:-300px;
+
+    height:calc( 100vh - 3rem);
+    width:300px;
+
+    background:#333;
+    color:white;
+    
+    transition:0.2s;
+    overflow:auto;
+    z-index:99;
+}
+.sidebar_closer {
+    position:fixed;
+    top:3rem;
+    left:0;
+
+    height:calc(100vh - 3rem);
+    width:100%;
+    background:rgba(255,255,255,0.8);
+    cursor:pointer;
+    z-index:98;
+
+    display:none;
+}
+/* チェックされた時、チェックボックスの兄弟要素(~)に当たる、メニューとクローザーの装飾を変える。*/
+input[type="checkbox"].sidebar_chk:checked ~ .sidebar_menu{
+    right:0;
+    transition:0.2s;
+}
+input[type="checkbox"].sidebar_chk:checked ~ .sidebar_closer{
+    display:block;
+}
+
+
+/* ヘッダーとかぶらないようにマージン3rem取る。 */
+main {
+   margin-top:3rem;
+}
+
+
+/* sp mode */
+@media (max-width:800px){
+    .header h1 {
+        font-size:1.5rem;
+    }
+
+}

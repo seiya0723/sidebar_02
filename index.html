@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>折りたたみ式サイドバー</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header">
+            <h1>折りたたみ式サイドバー</h1>
+        </div>
+
+        
+        <input id="sidebar_chk" class="sidebar_chk" type="checkbox"><label class="sidebar_label" for="sidebar_chk"></label>
+
+        <div class="sidebar_menu">
+            ここにサイドバーの内容を書く
+        </div>
+
+        <!--
+            <チェックボックス><チェックボックスに対応したラベル>
+            <表示非表示させたい要素>
+        -->
+
+        <div id="sidebar_closer" class="sidebar_closer"></div>
+    </header>
+
+    <main>
+
+        <p>ここがメインエリア</p>
+    
+    </main>
+
+</body>
+</html>
+
